@@ -1,4 +1,5 @@
-geoip2=4.7.0
+geoip2==4.7.0
 streamlit==1.21.0
 plotly==5.13.1
+pycountry==22.3.5
 
