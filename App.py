@@ -1,6 +1,7 @@
 import streamlit as st
 
 from Form import form
+from Results import results
 
 def app():
     # Set the page configuration
@@ -20,3 +21,5 @@ def app():
 
 if __name__ == "__main__":
     app()
+    
+    

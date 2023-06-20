@@ -1,6 +1,6 @@
 import plotly.graph_objects as go
 
-from AHPModel import ahp_model_weights
+from AHPModel.AHPModel import ahp_model_weights
 from ModelScoring import model_scoring
 
 def radar_chart(user_scores, version=1):
