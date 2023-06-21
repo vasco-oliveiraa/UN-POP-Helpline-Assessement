@@ -56,4 +56,4 @@ def get_country_from_ip():
                 # Handle the case when IP address is not found in the database
                 country=None
     
-            return country    
+            return country
