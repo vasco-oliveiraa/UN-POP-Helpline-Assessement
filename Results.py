@@ -4,24 +4,28 @@ from RadarChart import radar_chart
 
 def results(user_scores):
     
-    final_score = model_scoring(user_scores, output='final_score')
+    if st.session_state['user_scores']:
     
-    with st.container():
-    
-        st.title('Your Results')
+        final_score = round(model_scoring(user_scores, output='final_score'),2)
 
-        col1, col2, col3 = st.columns([3,2,3])
+        with st.container():
 
-        with col2:
+            st.title('Your Results')
 
-            st.metric(label='Your Helpline Score',value=str(final_score)+'%')
-        
-        tab1, tab2 = st.tabs(['User Inputs','Comparison'])
+            col1, col2, col3 = st.columns([3,2,3])
 
-        with tab1:
-            fig = radar_chart(user_scores,version=1)
-            st.plotly_chart(fig, use_container_width=True)
+            with col2:
 
-        with tab2:
-            fig = radar_chart(user_scores,version=2)
-            st.plotly_chart(fig, use_container_width=True)
+                st.metric(label='Your Helpline Score',value=str(final_score)+'%')
+
+            tab1, tab2 = st.tabs(['User Inputs','Comparison'])
+
+            with tab1:
+                fig = radar_chart(user_scores,version=1)
+                st.plotly_chart(fig, use_container_width=True)
+
+            with tab2:
+                fig = radar_chart(user_scores,version=2)
+                st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.write('Please submit the form to display the results')

@@ -16,29 +16,39 @@ Welcome to the Digital Channel and Helpline Assessment Form. This form aims to g
 Let's get started!
 """
     st.write(intro_text)
-        
+    
     country = None
+    
+    col1, col2 = st.columns([5,2])
+    
+    with col2:
+        
+        st.write('')
+        st.write('')
+        if st.button('Use my location', use_container_width=True):
 
-    if st.button('Use my location'):
+            with st.spinner('Checking IP Address'):
 
-        with st.spinner('Gathering you country from your IP Address'):
-
-            country = get_country_from_ip()
+                country = get_country_from_ip()
                 
-    with st.form("assessment_form"):
-
+    with col1:
+        
         # Get a list of all country names
         countries = [country.name for country in pycountry.countries]
         countries.append('Select a country')
 
         if country and (country!="Unknown"):
             # Create a dropdown in Streamlit
-            selected_country = st.selectbox('Country', countries, index=countries.index(country))
+            country = st.selectbox('Country*', countries, index=countries.index(country))
+            st.session_state['country'] = country
 
         else:
             # Create a dropdown in Streamlit
-            selected_country = st.selectbox('Country', countries, index=countries.index('Select a country'))
+            country = st.selectbox('Country*', countries, index=countries.index('Select a country'))
+            if country in countries:
+                st.session_state['country'] = country
             
+    with st.form("assessment_form"):        
 
         st.write("Please rate the following questions on a scale from 1 to 5, where 1 is the lowest and 5 is the highest.")
 
@@ -128,10 +138,6 @@ Let's get started!
                 'accessibility': accessibility,
             }
             
-            st.divider()
+            st.session_state['user_scores'] = user_scores
             
-            results(user_scores)
             
-            st.divider()
-
-            recommendations(user_scores)
