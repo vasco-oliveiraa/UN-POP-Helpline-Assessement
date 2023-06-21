@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 from Form import form
-from Results import results
+from ScoreComparison import score_comparison
 from Recommendations.Recommendations import recommendations
 
 def app():
@@ -36,7 +36,7 @@ def app():
     
     if selected == 'Assessment Form':
         form()
-    if selected == 'Score & Comparison':
+    if selected == 'Score Comparison':
         results(st.session_state['user_scores'])
     if selected == 'Recommendations':
         recommendations(st.session_state['user_scores'], st.session_state['country'])

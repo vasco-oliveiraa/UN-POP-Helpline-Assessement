@@ -2,7 +2,7 @@ import streamlit as st
 from ModelScoring import model_scoring
 from RadarChart import radar_chart
 
-def results(user_scores):
+def score_comparison(user_scores):
     
     if st.session_state['user_scores']:
     
@@ -28,4 +28,4 @@ def results(user_scores):
                 fig = radar_chart(user_scores,version=2)
                 st.plotly_chart(fig, use_container_width=True)
     else:
-        st.write('Please submit the form to display the results')
+        st.write('Please submit the form to display the score comparison')
