@@ -37,7 +37,7 @@ def app():
     if selected == 'Assessment Form':
         form()
     if selected == 'Score Comparison':
-        results(st.session_state['user_scores'])
+        score_comparison(st.session_state['user_scores'])
     if selected == 'Recommendations':
         recommendations(st.session_state['user_scores'], st.session_state['country'])
 
