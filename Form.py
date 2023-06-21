@@ -4,9 +4,6 @@ from time import sleep
 
 from GetCountryFromIP.GetCountryFromIP import get_country_from_ip
 
-from Results import results
-from Recommendations.Recommendations import recommendations
-
 def form():
     st.title("Digital Channel and Helpline Assessment Form")
     
