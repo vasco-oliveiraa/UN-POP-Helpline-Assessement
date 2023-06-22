@@ -10,7 +10,7 @@ from Recommendations.Recommendations import recommendations
 def app():
     # Set the page configuration
     st.set_page_config(
-    page_title="UN Pop",
+    page_title="UN POP - Helpline Assessment",
     page_icon="child",
     #layout="wide",
     #initial_sidebar_state="expanded",
