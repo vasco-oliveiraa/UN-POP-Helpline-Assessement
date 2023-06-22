@@ -22,7 +22,10 @@ def radar_chart(user_scores, version=1):
         fig = go.Figure(data=go.Scatterpolar(
             r=values,
             theta=labels,
-            fill='toself'
+            fill='toself',
+            name='Your Score',
+            fillcolor='rgba(204, 161, 163, 0.7)',
+            line=dict(color='rgba(204, 161, 163, 1.0)')
         ))
 
         fig.update_layout(layout)
@@ -52,14 +55,17 @@ def radar_chart(user_scores, version=1):
             r=values_user,
             theta=labels,
             fill='toself',
-            name='User Inputs'
+            name='Your Score',
+            line=dict(color='red')
         ))
 
         fig.add_trace(go.Scatterpolar(
             r=values_best,
             theta=labels,
             fill='toself',
-            name='Best Possible Score'
+            name='Target Score',
+            fillcolor='rgba(204, 161, 163, 0.7)',
+            line=dict(color='rgba(204, 161, 163, 1.0)')
         ))
 
         fig.update_layout(layout)

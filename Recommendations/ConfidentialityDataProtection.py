@@ -4,6 +4,23 @@ def confidentiality_data_protection():
     
     # Page title and description
     st.title("Confidentiality and Data Protection")
+    
+    # Divider
+    st.divider()
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+            
+        st.metric('Likelihood',value='Possible')
+        
+    with col2:
+        
+        st.metric('Severity',value='Unacceptable')
+        
+    with col3:
+        
+        st.metric('Risk',value='High')
 
     # Divider
     st.divider()

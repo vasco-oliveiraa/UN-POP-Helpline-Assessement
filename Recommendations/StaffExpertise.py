@@ -4,6 +4,23 @@ def staff_expertise():
     
     # Page title and description
     st.title("Staff Expertise")
+    
+    # Divider
+    st.divider()
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+            
+        st.metric('Likelihood',value='Probable')
+        
+    with col2:
+        
+        st.metric('Severity',value='Tolerable')
+        
+    with col3:
+        
+        st.metric('Risk',value='Medium')
 
     # Divider
     st.divider()

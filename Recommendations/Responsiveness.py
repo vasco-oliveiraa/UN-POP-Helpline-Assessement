@@ -4,6 +4,23 @@ def responsiveness():
     
     # Page title and description
     st.title("Responsiveness")
+    
+    # Divider
+    st.divider()
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+            
+        st.metric('Likelihood',value='Possible')
+        
+    with col2:
+        
+        st.metric('Severity',value='Acceptable')
+        
+    with col3:
+        
+        st.metric('Risk',value='Low')
 
     # Divider
     st.divider()

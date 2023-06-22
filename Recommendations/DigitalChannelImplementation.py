@@ -8,6 +8,23 @@ def digital_channel_implementation():
     # Divider
     st.divider()
     
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+            
+        st.metric('Likelihood',value='Possible')
+        
+    with col2:
+        
+        st.metric('Severity',value='Unacceptable')
+        
+    with col3:
+        
+        st.metric('Risk',value='High')
+    
+    # Divider
+    st.divider()
+    
     # Explanation
     st.subheader("Why is it important?")
     st.write("Efficiently launching and implementing digital channels and helplines is a crucial step in effectively helping children be safe. It ensures that the necessary infrastructure, platforms, and systems are in place to provide timely and accessible support to children in need. By streamlining the launch process, conducting infrastructure assessments, collaborating with IT experts, and testing system performance, countries can lay a solid foundation for delivering effective digital services to protect children and address their concerns.")

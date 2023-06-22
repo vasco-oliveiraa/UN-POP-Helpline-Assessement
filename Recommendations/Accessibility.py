@@ -12,7 +12,7 @@ def accessibility():
     
     with col1:
             
-        st.metric('Likelihood',value='Possible')
+        st.metric('Likelihood',value='Probable')
         
     with col2:
         

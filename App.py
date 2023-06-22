@@ -2,8 +2,10 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 
 from Form import form
+
 from ScoreComparison import score_comparison
 from Recommendations.Recommendations import recommendations
+
 
 def app():
     # Set the page configuration
@@ -25,7 +27,6 @@ def app():
     if 'selected' not in st.session_state:
         st.session_state['selected'] = None
         
-        
     selected = option_menu(
             menu_title = None,
             options = ['Assessment Form', 'Score Comparison', 'Recommendations'],
@@ -35,10 +36,9 @@ def app():
             orientation = 'horizontal'
         )
 
-    
     if selected == 'Assessment Form':
         form()
-    if (selected == 'Score Comparison'):
+    if selected == 'Score Comparison':
         score_comparison(st.session_state['user_scores'])
     if selected == 'Recommendations':
         recommendations(st.session_state['user_scores'])

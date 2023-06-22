@@ -1,19 +1,20 @@
 import streamlit as st
-from time import sleep
 
 def form():
-    st.title("Digital Channel and Helpline Assessment Form")
     
-    intro_text = """
-Welcome to the Digital Channel and Helpline Assessment Form. This form aims to gather information about the implementation, effectiveness, and accessibility of digital channels and helpline services in your country.
+    st.title("🧒 UN POP - Helpline Assessment")
+    
+    st.write("""
+    
+Welcome to UN POP's Helpline Assessment Form!
 
-Please rate each question on a scale from 1 to 5, where 1 is the lowest and 5 is the highest. Your feedback will help us improve and enhance the support provided to children in need.
-"""
-    st.write(intro_text)
-    
-    # if st.button("Let's get started!"):
+Here you can evaluate the implementation, effectiveness, and accessibility of digital channels and helpline services to help children be safe in your country. With this information, you'll receive a score evaluating your country's current helpline and it's stage of development. You will also receive recommendations on the main points of improvement you can work on, and you can request additional recommendations tailored to your specific country.
+
+        """)
 
     with st.form("assessment_form"):
+        
+        st.caption('Please rate each question on a scale from 1 to 5, where 1 is the lowest and 5 is the highest.')
 
         st.subheader("Digital Channel Implementation")
         digital_channel_implementation = st.slider(
@@ -103,4 +104,3 @@ Please rate each question on a scale from 1 to 5, where 1 is the lowest and 5 is
 
             st.session_state['user_scores'] = user_scores
             st.success('Submitted! Check Your Score Now!')
-            sleep(1)
