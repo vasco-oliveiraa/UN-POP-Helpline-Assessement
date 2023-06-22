@@ -1,53 +1,19 @@
 import streamlit as st
-import pycountry
 from time import sleep
-
-from GetCountryFromIP.GetCountryFromIP import get_country_from_ip
 
 def form():
     st.title("Digital Channel and Helpline Assessment Form")
     
     intro_text = """
-Welcome to the Digital Channel and Helpline Assessment Form. This form aims to gather information about the implementation, effectiveness, and accessibility of digital channels and helpline services in your country. Please rate each question on a scale from 1 to 5, where 1 is the lowest and 5 is the highest. Your feedback will help us improve and enhance the support provided to children in need.
+Welcome to the Digital Channel and Helpline Assessment Form. This form aims to gather information about the implementation, effectiveness, and accessibility of digital channels and helpline services in your country.
 
-Let's get started!
+Please rate each question on a scale from 1 to 5, where 1 is the lowest and 5 is the highest. Your feedback will help us improve and enhance the support provided to children in need.
 """
     st.write(intro_text)
     
-    country = None
-    
-    col1, col2 = st.columns([5,2])
-    
-    with col2:
-        
-        st.write('')
-        st.write('')
-        if st.button('Use my location', use_container_width=True):
+    # if st.button("Let's get started!"):
 
-            with st.spinner('Checking IP Address'):
-
-                country = get_country_from_ip()
-                
-    with col1:
-        
-        # Get a list of all country names
-        countries = [country.name for country in pycountry.countries]
-        countries.append('Select a country')
-
-        if country and (country!="Unknown"):
-            # Create a dropdown in Streamlit
-            country = st.selectbox('Country*', countries, index=countries.index(country))
-            st.session_state['country'] = country
-
-        else:
-            # Create a dropdown in Streamlit
-            country = st.selectbox('Country*', countries, index=countries.index('Select a country'))
-            if country in countries:
-                st.session_state['country'] = country
-            
-    with st.form("assessment_form"):        
-
-        st.write("Please rate the following questions on a scale from 1 to 5, where 1 is the lowest and 5 is the highest.")
+    with st.form("assessment_form"):
 
         st.subheader("Digital Channel Implementation")
         digital_channel_implementation = st.slider(
@@ -134,7 +100,7 @@ Let's get started!
                 'age_appropriate_guidance': age_appropriate_guidance,
                 'accessibility': accessibility,
             }
-            
+
             st.session_state['user_scores'] = user_scores
-            
-            
+            st.success('Submitted! Check Your Score Now!')
+            sleep(1)

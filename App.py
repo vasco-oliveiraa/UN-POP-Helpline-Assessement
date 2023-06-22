@@ -19,6 +19,13 @@ def app():
     }
     )
     
+    if 'user_scores' not in st.session_state:
+        st.session_state['user_scores'] = None
+    
+    if 'selected' not in st.session_state:
+        st.session_state['selected'] = None
+        
+        
     selected = option_menu(
             menu_title = None,
             options = ['Assessment Form', 'Score Comparison', 'Recommendations'],
@@ -27,19 +34,14 @@ def app():
             default_index = 0,
             orientation = 'horizontal'
         )
-    
-    if 'user_scores' not in st.session_state:
-        st.session_state['user_scores'] = None
-        
-    if 'country' not in st.session_state:
-        st.session_state['country'] = None
+
     
     if selected == 'Assessment Form':
         form()
-    if selected == 'Score Comparison':
+    if (selected == 'Score Comparison'):
         score_comparison(st.session_state['user_scores'])
     if selected == 'Recommendations':
-        recommendations(st.session_state['user_scores'], st.session_state['country'])
+        recommendations(st.session_state['user_scores'])
 
 if __name__ == "__main__":
     app()
